@@ -157,7 +157,7 @@ export function Dashboard() {
               </Grid>
               <Grid item xs={12}>
                 <Card color="#C7D2FC" backgroundColor="#C7D2FC">
-                  <Typography
+                  {/* <Typography
                     // textAlign={"left"}
                     fontFamily="fantasy"
                     variant="h5"
@@ -169,7 +169,7 @@ export function Dashboard() {
                     Find the best SOPs that were accepted by the universities
                     you want to apply. Review your Statement Of Purpose by
                     submitting in the Review Request Tab."
-                  </Typography>
+                  </Typography> */}
                   {/* <CardActionArea>
                     <Alert icon={false} variant="filled" severity="info">
                       adadfas

@@ -13,8 +13,25 @@ import axios from "axios";
 import clsx from "clsx";
 import * as React from "react";
 import { useEffect, useState } from "react";
+import constant from "./../../constants/Constant";
 
 const columns = [
+  {
+    field: "srno",
+    headerName: "ID",
+    width: 150,
+    editable: false,
+    renderCell: (params) => (
+      <a
+        rel="noopener noreferrer"
+        target="_blank"
+        href={params.row.statements3path}
+        color="#000"
+      >
+        #{params.row.srno}
+      </a>
+    ),
+  },
   {
     field: "statements3path",
     headerName: "SOP",
@@ -40,6 +57,16 @@ const columns = [
     // type: "number",
     width: 260,
     editable: false,
+    // renderCell: (params) => (
+    //   <a
+    //     rel="noopener noreferrer"
+    //     target="_blank"
+    //     href={params.row.statements3path}
+    //     color="#000"
+    //   >
+    //     {params.row.university}
+    //   </a>
+    // ),
   },
   {
     field: "term",
@@ -100,8 +127,7 @@ export function SopPage() {
       setLoading(true);
       try {
         const res = await axios.get(
-          "https://e7q2a20ulk.execute-api.us-east-1.amazonaws.com/prod/hello?q=" +
-            filterSubmit,
+          constant.SOP_PAGE_API_GATEWAY + filterSubmit,
           { crossdomain: true }
         );
         const body = await res.data.Items;
@@ -183,6 +209,21 @@ export function SopPage() {
                   <MenuItem value="University of Southern California">
                     University of Southern California
                   </MenuItem>
+                  <MenuItem value="University Of Missouri - Kansas City">
+                    University Of Missouri - Kansas City
+                  </MenuItem>
+                  <MenuItem value="Purdue University">
+                    Purdue University
+                  </MenuItem>
+                  <MenuItem value="University of California, San Diego">
+                    University of California, San Diego
+                  </MenuItem>
+                  <MenuItem value="University of Maryland (College Park)">
+                    University of Maryland (College Park)
+                  </MenuItem>
+                  <MenuItem value="Northeastern University">
+                    Northeastern University
+                  </MenuItem>
                 </Select>
               </FormControl>
             </Grid>
@@ -200,7 +241,9 @@ export function SopPage() {
                   label="branchChange"
                 >
                   <MenuItem value="Computer Science">Computer Science</MenuItem>
-                  {/* <MenuItem value="Mechanical">Mechanical</MenuItem> */}
+                  <MenuItem value="Mechanical Engineering">
+                    Mechanical Engineering
+                  </MenuItem>
                   <MenuItem value="Robotics">Robotics</MenuItem>
                 </Select>
               </FormControl>
@@ -217,7 +260,7 @@ export function SopPage() {
         <Grid
           sx={{
             backgroundColor: "white",
-            height: 500,
+            height: 528,
             width: "100%",
             "& .super-app-theme--cell": {
               // backgroundColor: "rgba(224, 183, 60, 0.55)",
@@ -241,15 +284,15 @@ export function SopPage() {
             },
           }}
           item
-          height="100vh"
+          height="110vh"
           xs={12}
         >
           <DataGrid
             rows={dbData}
             getRowId={(row) => row.timestamp}
             columns={columns}
-            pageSize={10}
-            rowsPerPageOptions={[10]}
+            pageSize={8}
+            rowsPerPageOptions={[8]}
             // checkboxSelection
             disableSelectionOnClick
             loading={loading}

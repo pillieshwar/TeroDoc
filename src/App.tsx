@@ -1,10 +1,10 @@
 import "./App.css";
-import { Rout } from "./components/Rout";
+import { Homepage } from "./components/Homepage";
 
 function App() {
   return (
     <div>
-      <Rout />
+      <Homepage />
     </div>
   );
 }

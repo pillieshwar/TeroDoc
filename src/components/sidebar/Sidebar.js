@@ -1,30 +1,31 @@
-import * as React from "react";
-import { styled, useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
-import CssBaseline from "@mui/material/CssBaseline";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
+import { Authenticator } from "@aws-amplify/ui-react";
+import ArticleRoundedIcon from "@mui/icons-material/ArticleRounded";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import CheckIcon from "@mui/icons-material/Check";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import DashboardCustomizeRoundedIcon from "@mui/icons-material/DashboardCustomizeRounded";
+import PreviewIcon from "@mui/icons-material/Preview";
+import LogoutIcon from "@mui/icons-material/Logout";
+import MenuIcon from "@mui/icons-material/Menu";
+import { Grid } from "@mui/material";
+import MuiAppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import MuiDrawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
-import { Grid } from "@mui/material";
+import { styled, useTheme } from "@mui/material/styles";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import * as React from "react";
 import { Link } from "react-router-dom";
-import ArticleRoundedIcon from "@mui/icons-material/ArticleRounded";
-import DashboardCustomizeRoundedIcon from "@mui/icons-material/DashboardCustomizeRounded";
-import FileUploadIcon from "@mui/icons-material/FileUpload";
-import CheckIcon from "@mui/icons-material/Check";
-import PreviewIcon from "@mui/icons-material/Preview";
+import Tooltip from "@mui/material/Tooltip";
 
 const drawerWidth = 240;
 
@@ -141,108 +142,116 @@ export function Sidebar(props) {
         <List sx={{ fontSize: "0.8rem" }}>
           <ListItem disablePadding sx={{ display: "block" }}>
             {/* Dashboard */}
-            <Link to="/" style={{ textDecoration: "none" }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
+            <Tooltip title="Dashboard" placement="right">
+              <Link to="/dashboard" style={{ textDecoration: "none" }}>
+                <ListItemButton
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
                   }}
                 >
-                  <DashboardCustomizeRoundedIcon color="primary" />
-                </ListItemIcon>
-                <ListItemText
-                  primary="Dashboard"
-                  sx={{
-                    fontSize: "0.8rem",
-                    opacity: open ? 1 : 0,
-                    color: "#000",
-                  }}
-                />
-              </ListItemButton>
-            </Link>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <DashboardCustomizeRoundedIcon color="primary" />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Dashboard"
+                    sx={{
+                      fontSize: "0.8rem",
+                      opacity: open ? 1 : 0,
+                      color: "#000",
+                    }}
+                  />
+                </ListItemButton>
+              </Link>
+            </Tooltip>
 
             {/* Statement of Purpose */}
-            <Link to="/sop" style={{ textDecoration: "none" }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
+            <Tooltip title="Statement of Purpose" placement="right">
+              <Link to="/sop" style={{ textDecoration: "none" }}>
+                <ListItemButton
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
                   }}
                 >
-                  <ArticleRoundedIcon color="primary" />
-                </ListItemIcon>
-                <ListItemText
-                  primary="Statement of Purpose"
-                  sx={{ opacity: open ? 1 : 0, color: "#000" }}
-                />
-              </ListItemButton>
-            </Link>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <ArticleRoundedIcon color="primary" />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Statement of Purpose"
+                    sx={{ opacity: open ? 1 : 0, color: "#000" }}
+                  />
+                </ListItemButton>
+              </Link>
+            </Tooltip>
 
             {/* Review Request */}
-            <Link to="/reviewrequest" style={{ textDecoration: "none" }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
+            <Tooltip title="Review Request" placement="right">
+              <Link to="/reviewrequest" style={{ textDecoration: "none" }}>
+                <ListItemButton
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
                   }}
                 >
-                  <PreviewIcon color="primary" />
-                </ListItemIcon>
-                <ListItemText
-                  primary="Review Request"
-                  sx={{ opacity: open ? 1 : 0, color: "#000" }}
-                />
-              </ListItemButton>
-            </Link>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <PreviewIcon color="primary" />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Review Request"
+                    sx={{ opacity: open ? 1 : 0, color: "#000" }}
+                  />
+                </ListItemButton>
+              </Link>
+            </Tooltip>
 
             {/* Consent Form */}
-            <Link to="/consent" style={{ textDecoration: "none" }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
+            <Tooltip title="Consent Form" placement="right">
+              <Link to="/" style={{ textDecoration: "none" }}>
+                <ListItemButton
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
                   }}
                 >
-                  <CheckIcon color="primary" />
-                </ListItemIcon>
-                <ListItemText
-                  primary="Consent Form"
-                  sx={{ opacity: open ? 1 : 0, color: "#000" }}
-                />
-              </ListItemButton>
-            </Link>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <CheckIcon color="primary" />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Consent Form"
+                    sx={{ opacity: open ? 1 : 0, color: "#000" }}
+                  />
+                </ListItemButton>
+              </Link>
+            </Tooltip>
             {/* <Link to="/testpay" style={{ textDecoration: "none" }}>
               <ListItemButton
                 sx={{
@@ -266,6 +275,31 @@ export function Sidebar(props) {
                 />
               </ListItemButton>
             </Link> */}
+            <Tooltip title="Pricing" placement="right">
+              <Link to="/pricing" style={{ textDecoration: "none" }}>
+                <ListItemButton
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <AttachMoneyIcon color="primary" />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Pricing"
+                    sx={{ opacity: open ? 1 : 0, color: "#000" }}
+                  />
+                </ListItemButton>
+              </Link>
+            </Tooltip>
             {/* Upload */}
             {/* <Link to="/upload" style={{ textDecoration: "none" }}>
               <ListItemButton
@@ -290,44 +324,45 @@ export function Sidebar(props) {
                 />
               </ListItemButton>
             </Link> */}
+            <Divider />
+
+            <Tooltip title="Log Out" placement="right">
+              <Link to="/dashboard" style={{ textDecoration: "none" }}>
+                <ListItemButton
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <LogoutIcon color="error" />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Log Out"
+                    sx={{
+                      opacity: open ? 1 : 0,
+                      float: "center",
+                      color: "#000",
+                    }}
+                  />
+                </ListItemButton>
+              </Link>
+            </Tooltip>
           </ListItem>
         </List>
-        {/* <Divider /> */}
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1 }}>
         <DrawerHeader />
         <Grid item p={3} mt={-3}>
           <div>{props.children}</div>
         </Grid>
-        {/* <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-          dolor purus non enim praesent elementum facilisis leo vel. Risus at
-          ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
-          quisque non tellus. Convallis convallis tellus id interdum velit
-          laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed
-          adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-          integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-          eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-          quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-          vivamus at augue. At augue eget arcu dictum varius duis at consectetur
-          lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
-          faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-          ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar
-          elementum integer enim neque volutpat ac tincidunt. Ornare suspendisse
-          sed nisi lacus sed viverra tellus. Purus sit amet volutpat consequat
-          mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis
-          risus sed vulputate odio. Morbi tincidunt ornare massa eget egestas
-          purus viverra accumsan in. In hendrerit gravida rutrum quisque non
-          tellus orci ac. Pellentesque nec nam aliquam sem et tortor. Habitant
-          morbi tristique senectus et. Adipiscing elit duis tristique
-          sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography> */}
       </Box>
     </Box>
   );

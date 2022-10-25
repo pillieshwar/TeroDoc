@@ -1,11 +1,13 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Consent } from "./body/Consent";
 import { Dashboard } from "./body/Dashboard";
 import { ReviewRequestPage } from "./body/ReviewRequestPage";
 import { SopPage } from "./body/SopPage";
-
-import { Cancel } from "./body/Cancel";
-import { Consent } from "./body/Consent";
 import { Sidebar } from "./sidebar/Sidebar";
+// import { Testpay } from "./stripepayment/Testpay";
+import { Cancel } from "./body/Cancel";
+import { Pricing } from "./body/Pricing";
+import { Success } from "./body/Success";
 
 export function Rout() {
   return (
@@ -14,14 +16,17 @@ export function Rout() {
         render={(props) => (
           <Sidebar {...props}>
             <Switch>
-              <Route path="/" exact component={Dashboard} />
+              <Route path="/dashboard" exact component={Dashboard} />
               <Route path="/sop" exact component={SopPage} />
-              <Route path="/consent" exact component={Consent} />
+              <Route path="/" exact component={Consent} />
               <Route
                 path="/reviewrequest"
                 exact
                 component={ReviewRequestPage}
               />
+              <Route path="/paymentsuccess" exact component={Success} />
+              <Route path="/paymentcancel" exact component={Cancel} />
+              <Route path="/pricing" exact component={Pricing} />
             </Switch>
           </Sidebar>
         )}
