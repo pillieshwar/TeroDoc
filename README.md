@@ -13,4 +13,7 @@ Also, if you want to implement a new feature, please add it to the issues and st
 
 Once issue is solved, push the code and create a merge request.
 
+# Contact
+If anyone needs to talk to the team. Please send an email to terodocteam@gmail.com and we will schedule a zoom call for further dicsussions.
+
 Happy Coding!
