@@ -58,7 +58,7 @@ export function Dashboard() {
         >
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2} textAlign={"center"}>
-              <Grid item xs={3}>
+              <Grid item md={3} xs={12}>
                 <Link style={{ textDecoration: "none" }} to="/sop">
                   <Card sx={{ maxWidth: 345 }}>
                     <CardActionArea>
@@ -82,7 +82,7 @@ export function Dashboard() {
                   </Card>
                 </Link>
               </Grid>
-              <Grid item xs={3}>
+              <Grid item md={3} xs={12}>
                 <Link style={{ textDecoration: "none" }} to="/sop">
                   <Card sx={{ maxWidth: 345 }}>
                     <CardActionArea>
@@ -107,7 +107,7 @@ export function Dashboard() {
                 </Link>
               </Grid>
 
-              <Grid item xs={3}>
+              <Grid item md={3} xs={12}>
                 <Link style={{ textDecoration: "none" }} to="/sop">
                   <Card sx={{ maxWidth: 345 }}>
                     <CardActionArea>
@@ -131,7 +131,7 @@ export function Dashboard() {
                   </Card>
                 </Link>
               </Grid>
-              <Grid item xs={3}>
+              <Grid item md={3} xs={12}>
                 <Link style={{ textDecoration: "none" }} to="/reviewrequest">
                   <Card sx={{ maxWidth: 345 }}>
                     <CardActionArea>
