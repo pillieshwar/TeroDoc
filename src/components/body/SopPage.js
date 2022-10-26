@@ -6,7 +6,6 @@ import Collapse from "@mui/material/Collapse";
 import FormControl from "@mui/material/FormControl";
 import IconButton from "@mui/material/IconButton";
 import InputLabel from "@mui/material/InputLabel";
-import ListItemText from "@mui/material/ListItemText";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { DataGrid } from "@mui/x-data-grid";
@@ -14,10 +13,11 @@ import axios from "axios";
 import clsx from "clsx";
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { pdfjs } from "react-pdf";
-import { Link } from "react-router-dom";
 import constant from "./../../constants/Constant";
 import "./SopPage.css";
+import { pdfjs } from "react-pdf";
+import { Link } from "react-router-dom";
+import ListItemText from "@mui/material/ListItemText";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -25,7 +25,7 @@ const columns = [
   {
     field: "srno",
     headerName: "ID",
-    width: 150,
+    width: 160,
     editable: false,
     renderCell: (params) => (
       <div>
@@ -33,7 +33,7 @@ const columns = [
           to={"/pdfviewer?pdfId=" + params.row.statements3path}
           style={{ textDecoration: "none" }}
         >
-          <ListItemText primary={params.row.srno} />
+          <ListItemText primary={"#" + params.row.srno} />
         </Link>
       </div>
     ),
@@ -197,9 +197,9 @@ export function SopPage() {
         </Grid>
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
-            <Grid item xs={2}></Grid>
-            <Grid item xs={3}>
-              <FormControl variant="standard" sx={{ m: 1, minWidth: 280 }}>
+            {/* <Grid item md={2}></Grid> */}
+            <Grid item xs={12} md={5} textAlign={"right"}>
+              <FormControl variant="standard" sx={{ m: 1, minWidth: 350 }}>
                 <InputLabel id="demo-simple-select-standard-label">
                   University
                 </InputLabel>
@@ -234,9 +234,9 @@ export function SopPage() {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={1}></Grid>
-            <Grid item xs={3}>
-              <FormControl variant="standard" sx={{ m: 1, minWidth: 280 }}>
+            {/* <Grid item md={1}></Grid> */}
+            <Grid item xs={12} md={4}>
+              <FormControl variant="standard" sx={{ m: 1, minWidth: 350 }}>
                 <InputLabel id="demo-simple-select-standard-label">
                   Course
                 </InputLabel>
@@ -255,8 +255,8 @@ export function SopPage() {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={1}></Grid>
-            <Grid item mt={2.5} xs={2}>
+            {/* <Grid item md={1}></Grid> */}
+            <Grid item mt={2.5} xs={12} md={3} textAlign={"center"}>
               <Button variant="outlined" onClick={filterSubmitFunction}>
                 Search
               </Button>
@@ -267,7 +267,7 @@ export function SopPage() {
         <Grid
           sx={{
             backgroundColor: "white",
-            height: 528,
+            // height: 528,
             width: "100%",
             "& .super-app-theme--cell": {
               // backgroundColor: "rgba(224, 183, 60, 0.55)",
@@ -291,7 +291,7 @@ export function SopPage() {
             },
           }}
           item
-          height="110vh"
+          // height="110vh"
           xs={12}
         >
           <DataGrid
@@ -301,6 +301,7 @@ export function SopPage() {
             pageSize={8}
             rowsPerPageOptions={[8]}
             // checkboxSelection
+            autoHeight
             disableSelectionOnClick
             loading={loading}
           />

@@ -29,7 +29,7 @@ const rows = [
           mt={7}
           color="success"
         ></CurrencyRupeeRoundedIcon>
-        699
+        299
       </h3>
       (One-Time-Pay)
     </span>,
@@ -40,7 +40,7 @@ const rows = [
           mt={7}
           color="success"
         ></CurrencyRupeeRoundedIcon>
-        2999
+        2499
       </h3>
       (One-Time-Pay)
     </span>
@@ -73,12 +73,13 @@ const rows = [
   // ),
 
   // createData(""),
-  createData(
-    " Access to view SOPs",
-    "Limited (25 SOPs)",
-    "Unlimited",
-    "Unlimited"
-  ),
+  // createData(
+  //   " Access to view SOPs",
+  //   <CancelRoundedIcon color="error" />,
+  //   <CheckCircleRoundedIcon color="info" />,
+  //   <CheckCircleRoundedIcon color="success" />
+  // ),
+
   // createData(
   //   "25 Free Viewable SOPs",
   //   <CheckCircleRoundedIcon color="success" />,
@@ -93,7 +94,7 @@ const rows = [
     <CheckCircleRoundedIcon color="success" />
   ),
   // createData(""),
-  createData("Number of Review Requests", "1", "3", "5"),
+  createData("Number of Review Requests", "1", "1", "3"),
   createData(
     "Grammer Check",
     <CheckCircleRoundedIcon color="success" />,
