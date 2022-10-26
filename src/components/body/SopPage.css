@@ -1,0 +1,21 @@
+.pdf-container {
+  display: flex;
+  justify-content: center;
+  user-select: none;
+  margin-top: -15px;
+}
+
+/* .controls-left {
+  padding-top: 70px;
+  margin-left: -5%;
+}
+.controls-right {
+  padding-top: 20%;
+  z-index: 1000;
+} */
+
+@media print {
+  .pdf-container {
+    display: none;
+  }
+}

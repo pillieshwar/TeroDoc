@@ -6,6 +6,7 @@ import Collapse from "@mui/material/Collapse";
 import FormControl from "@mui/material/FormControl";
 import IconButton from "@mui/material/IconButton";
 import InputLabel from "@mui/material/InputLabel";
+import ListItemText from "@mui/material/ListItemText";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { DataGrid } from "@mui/x-data-grid";
@@ -13,7 +14,12 @@ import axios from "axios";
 import clsx from "clsx";
 import * as React from "react";
 import { useEffect, useState } from "react";
+import { pdfjs } from "react-pdf";
+import { Link } from "react-router-dom";
 import constant from "./../../constants/Constant";
+import "./SopPage.css";
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const columns = [
   {
@@ -22,14 +28,14 @@ const columns = [
     width: 150,
     editable: false,
     renderCell: (params) => (
-      <a
-        rel="noopener noreferrer"
-        target="_blank"
-        href={params.row.statements3path}
-        color="#000"
-      >
-        #{params.row.srno}
-      </a>
+      <div>
+        <Link
+          to={"/pdfviewer?pdfId=" + params.row.statements3path}
+          style={{ textDecoration: "none" }}
+        >
+          <ListItemText primary={params.row.srno} />
+        </Link>
+      </div>
     ),
   },
   {
@@ -38,17 +44,18 @@ const columns = [
     width: 80,
     editable: false,
     renderCell: (params) => (
-      <a
-        rel="noopener noreferrer"
-        target="_blank"
-        href={params.row.statements3path}
-      >
-        <PictureAsPdfRoundedIcon
-          color="error"
-          fontSize="small"
-          sx={{ ml: "6px" }}
-        />
-      </a>
+      <div>
+        <Link
+          to={"/pdfviewer?pdfId=" + params.row.statements3path}
+          style={{ textDecoration: "none" }}
+        >
+          <PictureAsPdfRoundedIcon
+            color="error"
+            fontSize="small"
+            sx={{ ml: "6px" }}
+          />
+        </Link>
+      </div>
     ),
   },
   {

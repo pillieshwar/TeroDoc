@@ -8,6 +8,7 @@ import { Sidebar } from "./sidebar/Sidebar";
 import { Cancel } from "./body/Cancel";
 import { Pricing } from "./body/Pricing";
 import { Success } from "./body/Success";
+import { PdfViewer } from "./body/PdfViewer";
 
 export function Rout() {
   return (
@@ -27,6 +28,7 @@ export function Rout() {
               <Route path="/paymentsuccess" exact component={Success} />
               <Route path="/paymentcancel" exact component={Cancel} />
               <Route path="/pricing" exact component={Pricing} />
+              <Route path="/pdfviewer" exact component={PdfViewer} />
             </Switch>
           </Sidebar>
         )}
