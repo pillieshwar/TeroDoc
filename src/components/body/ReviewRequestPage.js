@@ -147,6 +147,25 @@ const degreeList = [
 
 const columns = [
   {
+    field: "Report",
+    headerName: "Report",
+    width: 80,
+    editable: false,
+    renderCell: (params) => (
+      <div>
+        {params.row.status === "COMPLETE" ? (
+          <Button size="small" variant="outlined">
+            View
+          </Button>
+        ) : (
+          <Button size="small" disabled variant="outlined">
+            View
+          </Button>
+        )}
+      </div>
+    ),
+  },
+  {
     field: "statements3path",
     headerName: "SOP",
     width: 80,
@@ -373,7 +392,7 @@ export function ReviewRequestPage() {
   };
 
   const handleFullNameChange = (e) => {
-    // localStorage.setItem("sopFullName", Auth.user?.attributes.email);
+    localStorage.setItem("sopFullName", Auth.user?.attributes.email);
     setFullName(e.target.value);
     if (university && selectedFile && branch) {
       setBtnDisabled(false);
@@ -529,6 +548,23 @@ export function ReviewRequestPage() {
     console.log(params, params.row.id);
     reviewHandleOpen(true);
     setReviewEmail(params.row.id);
+  }
+
+  const [userReviewOpen, setUserReviewOpen] = React.useState(false);
+  const [userReviewEmail, setUserReviewEmail] = React.useState("");
+  const userReviewHandleOpen = () => setReviewOpen(true);
+  const userRreviewHandleClose = () => setReviewOpen(false);
+
+  function selectedReport(params) {
+    console.log(params, params.row.id);
+    const columnValue = params.colDef.field;
+
+    if (columnValue !== "Report" || params.row.status !== "COMPLETE") {
+      return;
+    }
+    console.log(params, params.row.id);
+    userReviewHandleOpen(true);
+    setUserReviewEmail(params.row.id);
   }
   return (
     // <Authenticator>
@@ -993,8 +1029,137 @@ export function ReviewRequestPage() {
               disableSelectionOnClick
               autoHeight
               loading={loading}
+              onCellClick={selectedReport}
             />
           </Grid>
+          {reviewOpen ? (
+            <Modal
+              open={reviewOpen}
+              onClose={reviewHandleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box sx={style}>
+                <Grid container>
+                  <Grid item xs={12} md={8}>
+                    <Grid container>
+                      <Grid item xs={12} md={12}>
+                        <Typography
+                          textAlign={"left"}
+                          component="div"
+                          sx={{
+                            textAlign: "justify",
+                            float: "left",
+                            display: { xs: "block", sm: "block" },
+                          }}
+                          color="#1876D1"
+                          fontStyle={""}
+                        >
+                          <h3>Your Statement Of Purpose (SOP) Critique</h3>
+                          <Divider />
+                          <Grid container>
+                            <Grid item xs={6} md={9}>
+                              <p>
+                                TeroDoc Reviewer<br></br>terodocteam@gmail.com
+                              </p>
+                            </Grid>
+                            <Grid item xs={6} md={3}>
+                              <p>{new Date().toLocaleString()}</p>
+                            </Grid>
+                          </Grid>
+                          <Divider />
+                          <p style={{ color: "#000" }}>
+                            Hi {reviewEmail},<br></br> <br></br>This free resume
+                            review is meant to give you an honest and
+                            straightforward assessment with some suggestions to
+                            help in your job search. I'm able to offer insight
+                            into how you compare to other job seekers competing
+                            for the same positions because I personally review
+                            hundreds of resumes each month.
+                          </p>
+                          <br></br>
+                          <h3>Visual Presentation and Organization</h3>
+                          <p style={{ color: "#000" }}>
+                            We've all been told that looks don't matter as much
+                            as substance, but in the case of your resume this
+                            just isn't true. I think your design is visually
+                            uneven. I'd like to see your document more polished,
+                            something more fitting of your experience level.
+                            Remember that your resume is your marketing tool.
+                            It's the first view a potential employer has of you.
+                            That said, your use of bullets is great! They're
+                            really helpful at highlighting the best pieces of
+                            information while breaking up long sections of text.
+                            At the same time, you shouldn't have too many
+                            bullets that they make your resume difficult to
+                            read!
+                          </p>
+
+                          <br></br>
+                          <h3>SOP Writing</h3>
+                          <p style={{ color: "#000" }}>
+                            Your career summary is not as long as it could be.
+                            This is a key component to compel the hiring manager
+                            to keep reading. Improve your career summary to
+                            define you as a professional and cover those areas
+                            most relevant to the job that you seek. Based on how
+                            the resume is phrased, you come across as a "doer,"
+                            as opposed to an "achiever." Too many of your
+                            sentences are task-based and not results-based. This
+                            means that they tell you what you did, instead of
+                            what you achieved. This is a normal mistake for
+                            non-professional resume writers. To be effective and
+                            create excitement a good resume aids the hiring
+                            executive envisage you delivering similar
+                            achievements at his or her company. Here are some
+                            examples of task-based sentences in your resume:
+                            “Provide personal, academic, social, and cultural
+                            assistance and connect students to resources”
+                            “Sampled real-world networks to construct and
+                            visualize small-world networks” Employers want to
+                            know about your previous contributions and
+                            specifically how you've helped make a difference.
+                            More significantly, they want to know how you are
+                            going to make a difference at their company. In
+                            reading your resume, I did not find the kind of
+                            active language that would bring your work to life.
+                            Instead, I saw passive words and non-action verbs.
+                            Phrases like “Design” and “performed” are
+                            monotonous, overused, and add little value to your
+                            resume. Strong action verbs, used with engaging
+                            language to outline outstanding achievements, are
+                            essential parts of a soundly-built resume. Now,
+                            let's see how to put this into practice. Here's a
+                            real life sample taken from a former client's
+                            resume. By changing the language, we helped to
+                            enhance the perception of the job-seeker. Passive
+                            language / Doing: “Negotiated contracts with
+                            vendors” Action language / Achieving: “Slashed
+                            payroll/benefits administration costs 30% by
+                            negotiating pricing and fees, while ensuring the
+                            continuation and enhancements of services.” An
+                            adjustment like this makes a big improvement. A
+                            regular review of every word and sentence in your
+                            resume is an important thing to do, especially if
+                            you're the only one looking at it. Hiring managers
+                            are looking for an excuse to eliminate you as a
+                            candidate. You may not be able to see awkward
+                            phrases and grammatical errors if you've already
+                            spent too much time with your own resume.
+                          </p>
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+
+                  <Grid item xs={12} md={4}></Grid>
+                </Grid>
+                <Button onClick={reviewHandleClose}>Close</Button>
+              </Box>
+            </Modal>
+          ) : (
+            <></>
+          )}
         </Grid>
       )}
     </div>
