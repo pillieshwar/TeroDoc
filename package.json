@@ -19,7 +19,6 @@
     "@stripe/react-stripe-js": "^1.13.0",
     "@stripe/stripe-js": "^1.41.0",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.11.59",
@@ -46,9 +45,11 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "@testing-library/react": "^13.4.0",
     "@types/react-router": "^5.1.19",
     "@types/react-router-dom": "^5.3.3",
-    "concurrently": "^7.5.0"
+    "concurrently": "^7.5.0",
+    "react-test-renderer": "^18.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

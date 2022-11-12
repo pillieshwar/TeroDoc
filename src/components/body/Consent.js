@@ -73,7 +73,7 @@ export function Consent() {
   };
 
   return (
-    <div>
+    <div data-testid="testid-consent">
       <Grid container>
         <Grid item xs={12}>
           <h4>Consent</h4>

@@ -1,4 +1,4 @@
-import "@aws-amplify/ui-react/styles.css";
+// import "@aws-amplify/ui-react/styles.css";
 import CloseIcon from "@mui/icons-material/Close";
 import PictureAsPdfRoundedIcon from "@mui/icons-material/PictureAsPdfRounded";
 import { Alert, Box, Button, Grid, Paper } from "@mui/material";
@@ -17,7 +17,9 @@ import { Link } from "react-router-dom";
 import constant from "./../../constants/Constant";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { Divider } from "@aws-amplify/ui-react";
+import Divider from "@mui/material/Divider";
+
+// import { Divider } from "@aws-amplify/ui-react";
 
 const style = {
   position: "absolute",
@@ -322,7 +324,7 @@ const suffix = constant.S3_SUFFIX;
 export function ReviewRequestPage() {
   const loggedInId = Auth.user?.attributes.email;
   localStorage.setItem("auth", Auth.user?.attributes.email);
-  const [dbData, setDbData] = useState({});
+  const [dbData, setDbData] = useState([]);
   const [branchChange, setbranchChange] = useState("");
   const [universityChange, setUniversityChange] = React.useState("");
   const [filterSubmit, setFilterSubmit] = React.useState(
@@ -569,7 +571,7 @@ export function ReviewRequestPage() {
   return (
     // <Authenticator>
     //   {({ signOut }) => (
-    <div>
+    <div data-testid="testid-reviewRequestPage">
       {filterSubmit === "terodocteam@gmail.com" ? (
         <Grid container>
           <Grid item xs={6}>
@@ -791,7 +793,6 @@ export function ReviewRequestPage() {
             </Grid> */}
           <Grid
             container
-            xs={12}
             sx={{
               display: "flex",
               flexWrap: "wrap",

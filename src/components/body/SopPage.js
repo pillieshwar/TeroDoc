@@ -121,7 +121,7 @@ const columns = [
 ];
 
 export function SopPage() {
-  const [dbData, setDbData] = useState({});
+  const [dbData, setDbData] = useState([]);
   const [branchChange, setbranchChange] = useState("");
   const [universityChange, setUniversityChange] = React.useState("");
   const [filterSubmit, setFilterSubmit] = React.useState("all");
@@ -167,7 +167,7 @@ export function SopPage() {
   };
 
   return (
-    <div>
+    <div data-testid="testid-sop">
       <Grid container>
         <Grid item xs={12}>
           <h4>Statement of Purpose</h4>

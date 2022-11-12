@@ -12,7 +12,7 @@ export function Dashboard() {
   const [open, setOpen] = React.useState(true);
 
   return (
-    <div>
+    <div data-testid="testid-1">
       <Grid container>
         <Grid item xs={2}>
           <h4 style={{ marginBottom: "0 px", width: "70%" }}>Dashboard</h4>
@@ -156,7 +156,7 @@ export function Dashboard() {
                 </Link>
               </Grid>
               <Grid item xs={12}>
-                <Card color="#C7D2FC" backgroundColor="#C7D2FC">
+                <Card color="#C7D2FC">
                   {/* <Typography
                     // textAlign={"left"}
                     fontFamily="fantasy"

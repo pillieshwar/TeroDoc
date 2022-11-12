@@ -1,4 +1,4 @@
-import { Authenticator } from "@aws-amplify/ui-react";
+// import { Authenticator } from "@aws-amplify/ui-react";
 import ArticleRoundedIcon from "@mui/icons-material/ArticleRounded";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import CheckIcon from "@mui/icons-material/Check";
